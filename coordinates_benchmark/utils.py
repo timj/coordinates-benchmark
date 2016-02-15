@@ -25,7 +25,7 @@ CELESTIAL_CONVERSIONS = [dict(zip(['in', 'out'], _))
                          for _ in CELESTIAL_CONVERSIONS
                          if _[0] != _[1]]
 
-TOOLS = sorted('astropy kapteyn novas pyast palpy pyephem pyslalib pytpm'.split())
+TOOLS = sorted('astropy kapteyn novas pyast palpy lsst_afw pyephem pyslalib pytpm'.split())
 TOOL_PAIRS = [_ for _ in itertools.product(TOOLS, TOOLS)
               if _[0] < _[1]]
 
@@ -35,6 +35,8 @@ def _import_name(name):
         return 'starlink.Ast'
     elif name == 'pyephem':
         return 'ephem'
+    elif name == 'lsst_afw':
+        return 'lsst.afw.coord'
     else:
         return name
 
